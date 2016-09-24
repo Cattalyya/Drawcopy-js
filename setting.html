@@ -1,0 +1,45 @@
+<section ng-controller="SettingCtrl">
+<!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Setting</h4>
+              </div>
+              <div class="modal-body">
+
+                                
+                <form>
+                <div class="form-group row" >
+
+                  <label for="example-text-input" class="col-xs-3 col-form-label">Subject Name</label>
+                  <div class="col-xs-9">
+                    <input class="form-control" type="text" value="a" id="example-text-input" ng-model="subject">
+                  </div>
+                </div>
+                <select multiple="multiple" class="image-picker show-html">
+                  <option data-img-src="img/1.png" value="1">1</option>
+                  <option data-img-src="img/2.png" value="2">2</option>
+                  <option data-img-src="img/3.png" value="3">3</option>
+                  <option data-img-src="img/4.png" value="4">4</option>
+                  <option data-img-src="img/4.png" value="5">5</option>
+                  <option data-img-src="img/6.png" value="6">6</option>
+                  <option data-img-src="img/7.png" value="7">7</option>
+                  <option data-img-src="img/8.png" value="8">8</option>
+                </select>
+
+
+
+
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" ng-click="updateSetting()">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+   
+</section> 
