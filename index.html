@@ -51,36 +51,41 @@
     </nav>
 
     
-        
+    <!-- include Setting modal -->
+    <ng-include src="'setting.html'"></ng-include>
 
     <div class="container" ng-controller="MainCtrl">
         <h1 >{{subject}}</h1>
-        <ng-include src="'setting.html'"></ng-include>
 
         <div class="panel panel-default">
             <div class="panel-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Original Image</h3>
-                            </div>
-                            <div class="panel-body">
-                                Img goes here
-                            </div>
+            <div class="row">
+
+                <!--original image column-->
+                <div class="col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Original Image</h3>
+                        </div>
+                        <div class="panel-body">
+                            Img goes here
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Your Drawing</h3>
-                            </div>
-                            <div class="panel-body">
-                                Canvas goes here
-                            </div>
+                </div><!-- end original image column-->
+
+                <!--drawing canvas column-->
+                <div class="col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Your Drawing</h3>
+                        </div>
+                        <div class="panel-body">
+                            Canvas goes here
                         </div>
                     </div>
-                </div>
+                </div><!-- end drawing column-->
+
+            </div>
             </div>
         </div>
 
@@ -100,10 +105,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-animate.min.js"></script>
 
-    <script src="js/image-picker.js"></script>
+    <script src="js/plugin/image-picker.js"></script>
     <script src="js/jQuery/image-picker-controller.js"></script>
-    <script src="js/controllers/main.js"></script>
+    <script src="js/controllers/main.js"></script>>
     <script src="js/controllers/setting.js"></script>
+    <script src="js/services/sharedDataService.js"></script>
+    <script src="js/services/eventListenerService.js"></script>
 
 
 </body>

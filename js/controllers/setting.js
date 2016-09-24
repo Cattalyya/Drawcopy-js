@@ -1,7 +1,16 @@
-app.controller('SettingCtrl',function($scope){
+app.controller('SettingCtrl',function($scope, sharedDataService, eventListenerService){
 
-    $("select").imagepicker()
+    var data = {};
+    data.selectedImage = {};
 
-    $scope.updateSetting = function(){};
+    $("select").imagepicker();
+
+    $scope.updateSetting = function(){
+        sharedDataService.setData("subject",$scope.subject);
+        sharedDataService.setData("imagesUrlArray", $);
+
+
+        eventListenerService.triggerListeners("updateSetting");
+    };
 
 });

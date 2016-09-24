@@ -1,8 +1,14 @@
 var app =angular.module('drawcopy',[])
 
-app.controller('MainCtrl',function($scope){ 
+app.controller('MainCtrl',function($scope, sharedDataService, eventListenerService){ 
 
+    $scope.subject = sharedDataService.getData("subject")
 
-    $scope.subject = "Experiment 1"
+    var updateMainCtrlData = function() {
+        $scope.subject = sharedDataService.getData("subject");
+    }
+
+    eventListenerService.addListener("updateSetting", updateMainCtrlData);
+
 
 });
