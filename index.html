@@ -66,9 +66,14 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h3 class="panel-title">Original Image</h3>
+
                         </div>
-                        <div class="panel-body">
-                            Img goes here
+                        <div class="panel-body" style="text-align:center">
+                            <span>
+                                <p class="glyphicon glyphicon-menu-right" aria-hidden="true" style="float:right" ng-click="nextImage()"></p>
+                                <p class="glyphicon glyphicon-menu-left" aria-hidden="true" style="float:right" ng-click="previousImage()"></p>
+                            </span>
+                            <img ng-src="{{currentImageUrl}}" alt="No images selected" style="width:350px; height:350px"/>
                         </div>
                     </div>
                 </div><!-- end original image column-->
@@ -106,7 +111,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-animate.min.js"></script>
 
     <script src="js/plugin/image-picker.js"></script>
-    <script src="js/jQuery/image-picker-controller.js"></script>
     <script src="js/controllers/main.js"></script>>
     <script src="js/controllers/setting.js"></script>
     <script src="js/services/sharedDataService.js"></script>
