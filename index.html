@@ -84,8 +84,8 @@
                         <div class="panel-heading">
                             <h3 class="panel-title">Your Drawing</h3>
                         </div>
-                        <div class="panel-body">
-                            Canvas goes here
+                        <div class="panel-body" ng-controller="PaintingCtrl" style="text-align: center" >
+                            <canvas id="sketchpad"></canvas>
                         </div>
                     </div>
                 </div><!-- end drawing column-->
@@ -110,9 +110,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-animate.min.js"></script>
 
+
     <script src="js/plugin/image-picker.js"></script>
-    <script src="js/controllers/main.js"></script>>
+    <script src="js/plugin/sketchpad.js"></script>
+
+    <script src="js/controllers/main.js"></script>
     <script src="js/controllers/setting.js"></script>
+    <script src="js/controllers/painting.js"></script>
     <script src="js/services/sharedDataService.js"></script>
     <script src="js/services/eventListenerService.js"></script>
 

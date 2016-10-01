@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/Cattalyya/drawcopy-js#readme",
   "dependencies": {
-    
+    "sketchpad": "^0.1.0"
   }
 }
