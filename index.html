@@ -44,15 +44,16 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#">Export Data</a></li>
                     <!-- Button trigger modal -->
-                    <li><a class="glyphicon glyphicon-cog" data-toggle="modal" data-target="#myModal"></a></li>
+                    <li><a class="glyphicon glyphicon-cog" data-toggle="modal" data-target="#settingModal"></a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
 
     
-    <!-- include Setting modal -->
+    <!-- include Setting and Viewdata modal -->
     <ng-include src="'setting.html'"></ng-include>
+    <ng-include src="'viewdata.html'"></ng-include>
 
     <div class="container" ng-controller="MainCtrl">
         <h1 >{{subject}}</h1>
@@ -86,6 +87,7 @@
                         </div>
                         <div class="panel-body" ng-controller="PaintingCtrl" style="text-align: center" >
                             <canvas id="sketchpad"></canvas>
+                            <button class="btn btn-default" ng-click="viewData()" data-toggle="modal" data-target="#viewdataModal">View</button>
                         </div>
                     </div>
                 </div><!-- end drawing column-->
@@ -117,6 +119,7 @@
     <script src="js/controllers/main.js"></script>
     <script src="js/controllers/setting.js"></script>
     <script src="js/controllers/painting.js"></script>
+    <script src="js/controllers/viewdata.js"></script>
     <script src="js/services/sharedDataService.js"></script>
     <script src="js/services/eventListenerService.js"></script>
 
