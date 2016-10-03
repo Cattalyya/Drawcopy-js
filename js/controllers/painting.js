@@ -33,7 +33,7 @@ app.controller('PaintingCtrl',function($scope, sharedDataService, eventListenerS
         updateStrokesData();
     }
 
-
+   
     
 
 

@@ -22,4 +22,14 @@ app.controller('ViewdataCtrl',function($scope, sharedDataService, eventListenerS
 
     });
 
+     $scope.downloadDrawingURL = function(){
+
+        var cnvs = document.getElementById('sketchpad');
+
+        var dataURL = cnvs.toDataURL('image/png');
+        // sharedDataService.setData("dataURL");
+        window.open(dataURL);
+        console.log(dataURL);
+    }
+
 });
