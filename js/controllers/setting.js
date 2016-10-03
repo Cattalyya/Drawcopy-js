@@ -1,3 +1,21 @@
+  /**
+ * @ngdoc function
+ * @name drawcopy.controller:SettingCtrl
+ * @description
+ * # SettingCtrl
+ * Controller for setting modal
+ * This controller is responsible for modify images collection for the experiment
+ * @requires $scope
+ * @requires sharedDataService
+ * @requires eventListenerService
+ * 
+ * @property {String} subject:String Subject of the experiment
+ * @property {Array} imageIndices:Array indices of all images
+ * 
+ * @method {function} getImageUrl:function(index) get image url of image that has index=index
+ * @method {function} updateSetting:function updates subject and selected images for an experiment
+ */
+
 app.controller('SettingCtrl',function($scope, sharedDataService, eventListenerService){
 
     $scope.imageIndices = sharedDataService.getData("imageIndices");
@@ -24,7 +42,6 @@ app.controller('SettingCtrl',function($scope, sharedDataService, eventListenerSe
     $scope.updateSetting = function(){
         sharedDataService.setData("subject",$scope.subject);
         sharedDataService.setData("selectedImages", selectedImages)
-        console.log(selectedImages)
         eventListenerService.triggerListeners("updateSetting");
     };
 

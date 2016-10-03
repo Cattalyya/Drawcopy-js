@@ -1,3 +1,21 @@
+ /**
+ * @ngdoc function
+ * @name drawcopy.controller:MainCtrl
+ * @description
+ * # MainCtrl
+ * Controller for index.html
+ * This controller is responsible for changing current image 
+ * @requires $scope
+ * @requires sharedDataService
+ * @requires eventListenerService
+ * 
+ * @property {String} subject:String Subject of the experiment
+ * @property {String} currentImageUrl:String current selected image url
+ * 
+ * @method {function} previousImage:function apply new image 
+ * @method {function} nextImage:function This holds the reservation details of the current/selected reservation.
+ */
+
 var app =angular.module('drawcopy',[])
 
 app.controller('MainCtrl',function($scope, sharedDataService, eventListenerService){ 
@@ -8,6 +26,7 @@ app.controller('MainCtrl',function($scope, sharedDataService, eventListenerServi
     var selectedImageIndexes = sharedDataService.getData("selectedImages");
     var imgIndex = 0;
     var numImages = 0;
+
 
     var updateMainCtrlData = function() {
         $scope.subject = sharedDataService.getData("subject");
