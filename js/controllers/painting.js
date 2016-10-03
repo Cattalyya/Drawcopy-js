@@ -16,8 +16,8 @@ app.controller('PaintingCtrl',function($scope, sharedDataService, eventListenerS
 
     var sketchpad = new Sketchpad({
       element: '#sketchpad',
-      width: 400,
-      height: 400,
+      width: 350,
+      height: 350,
     });
 
 
