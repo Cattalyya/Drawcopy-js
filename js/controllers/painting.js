@@ -20,6 +20,8 @@ app.controller('PaintingCtrl',function($scope, sharedDataService, eventListenerS
       height: 350,
     });
 
+    // Change stroke size
+    sketchpad.penSize = 15;
 
     var updateStrokesData = function(){
         var JSONData = JSON.parse(sketchpad.toJSON());
