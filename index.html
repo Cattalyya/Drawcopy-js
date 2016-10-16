@@ -60,38 +60,36 @@
     <div class="container" ng-controller="MainCtrl">
         <h1 >{{subject}}</h1>
 
-            <div class="row">
+        <div class="row">
 
-                <!--original image column-->
-                <div class="col-md-6">
+            <!--original image column-->
+            <div class="col-md-6">
+                
+                <div style="text-align:right; height:420px">
+                    <img ng-src="{{currentImageUrl}}" alt="No images selected" class="picture-box"/>
+                </div>
+
+            </div><!-- end original image column-->
+
+            <!--drawing canvas column-->
+            <div class="col-md-6">
+                <div ng-controller="PaintingCtrl" style="text-align: left;height:420px" >
+                    <span>
+                        <a class="glyphicon glyphicon-export" aria-hidden="true" ng-click="viewData()" data-toggle="modal" data-target="#viewdataModal" style="float:right"></a>
+                    </span>
                     
-                        <div tyle="text-align:center; height:420px">
-                            <span>
-                                <a class="glyphicon glyphicon-menu-right" aria-hidden="true" style="float:right" ng-click="nextImage()"></a>
-                                <a class="glyphicon glyphicon-menu-left" aria-hidden="true" style="float:right" ng-click="previousImage()"></a>
-                            </span>
-                            <img ng-src="{{currentImageUrl}}" alt="No images selected" class="picture-box"/>
-                        </div>
-                </div><!-- end original image column-->
+                    <canvas class="picture-box sketchpad"></canvas>
+                
+                </div>
+            </div><!-- end drawing column-->
 
-                <!--drawing canvas column-->
-                <div class="col-md-6">
-                    
-                        <div ng-controller="PaintingCtrl" style="text-align: center;height:420px" >
-                            <span>
-                                <a class="glyphicon glyphicon-export" aria-hidden="true" ng-click="viewData()" data-toggle="modal" data-target="#viewdataModal" style="float:right"></a>
-                            </span>
-                            
-
-                            <div class="row">
-                            <canvas id="sketchpad" class="picture-box"></canvas>
-                            </div>
-                        
-                        </div>
-                </div><!-- end drawing column-->
-
-            </div>
-
+        </div><!-- end row -->
+        <div class="row" style="text-align:center;">
+            <span>
+                <a class="glyphicon glyphicon-menu-left a-lg" aria-hidden="true" ng-click="previousImage()"></a>
+                <a class="glyphicon glyphicon-menu-right a-lg " aria-hidden="true" ng-click="nextImage()"></a>
+            </span>
+        </div>
 
 
     </div>

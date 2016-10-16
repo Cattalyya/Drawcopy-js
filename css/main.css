@@ -35,8 +35,13 @@ body {
     width:350px; 
     height:350px;
 }
-.drawcopy-theme #sketchpad {
+.drawcopy-theme .sketchpad {
     background-color: #fff;
     border:5px solid #C0C0C0;
+    margin: 0 20px;
+}
+
+.a-lg {
+    font-size: 30pt
 }
 
