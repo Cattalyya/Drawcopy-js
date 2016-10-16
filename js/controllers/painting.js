@@ -15,6 +15,7 @@
 app.controller('PaintingCtrl',function($scope, sharedDataService, eventListenerService){
 
     var updateStrokesData = function(){
+        var sketchpad = sharedDataService.getCurrentSketchpad()
         var JSONData = JSON.parse(sketchpad.toJSON());
         var strokes = JSONData.strokes;
         sharedDataService.setData("JSONStrokesData", JSON.stringify(strokes));
@@ -28,7 +29,8 @@ app.controller('PaintingCtrl',function($scope, sharedDataService, eventListenerS
 
     var changeSketchpadsTo = function(){
         currImgInd = sharedDataService.getData( "currentImgIndex");
-        imgName = sharedDataService.getImageName(currImgInd);
+        selectedImages = sharedDataService.getData( "selectedImages");
+        imgName = sharedDataService.getImageName(selectedImages[currImgInd]);
         var sketchpads = sharedDataService.getData('sketchpads');
         var canvases = sharedDataService.getData('canvases');
         var currSketchpad = null;

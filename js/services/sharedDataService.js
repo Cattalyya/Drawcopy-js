@@ -10,8 +10,8 @@ app.factory('sharedDataService', function(){
     var data = {
         subject: DEFAULT_SUBJECT, // default subject 
         selectedImages: [],
-        sketchpads: {},
-        canvases: {}
+        sketchpads: {}, // map img name to sketchpads
+        canvases: {} // map img name to canvases
     };
     
 
@@ -28,6 +28,9 @@ app.factory('sharedDataService', function(){
         },
         getImageName: function(index) {
             return IMAGE_NAMES[index]
+        },
+        getCurrentSketchpad: function(){
+            return data.sketchpads[IMAGE_NAMES[data.selectedImages[data.currentImgIndex]]]
         }
 
     };

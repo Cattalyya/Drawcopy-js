@@ -24,7 +24,14 @@ app.controller('ViewdataCtrl',function($scope, sharedDataService, eventListenerS
 
      $scope.downloadDrawingURL = function(){
 
-        var cnvs = document.getElementById('sketchpad');
+        currImgInd = sharedDataService.getData( "currentImgIndex");
+        selectedImages = sharedDataService.getData( "selectedImages");
+        imgName = sharedDataService.getImageName(selectedImages[currImgInd]);
+
+        console.log('sketchpad'+imgName)
+        var cnvs = document.getElementById('sketchpad-'+imgName);
+
+        console.log(cnvs)
 
         var dataURL = cnvs.toDataURL('image/png');
         // sharedDataService.setData("dataURL");
