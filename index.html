@@ -60,7 +60,7 @@
     <div class="container" ng-controller="MainCtrl">
         <h1 >{{subject}}</h1>
 
-        <div class="row">
+        <div class="row"><!-- drawing row-->
 
             <!--original image column-->
             <div class="col-md-6">
@@ -78,18 +78,20 @@
                         <a class="glyphicon glyphicon-export" aria-hidden="true" ng-click="viewData()" data-toggle="modal" data-target="#viewdataModal" style="float:right"></a>
                     </span>
                     
-                    <canvas class="picture-box sketchpad"></canvas>
+                    <div id="sketches-div">
+                        <canvas class="picture-box sketchpad" id="sketchpad"></canvas>
+                    </div>
                 
                 </div>
             </div><!-- end drawing column-->
 
-        </div><!-- end row -->
-        <div class="row" style="text-align:center;">
+        </div><!-- end drawing row -->
+        <div class="row" style="text-align:center;"><!-- button controller row-->
             <span>
                 <a class="glyphicon glyphicon-menu-left a-lg" aria-hidden="true" ng-click="previousImage()"></a>
                 <a class="glyphicon glyphicon-menu-right a-lg " aria-hidden="true" ng-click="nextImage()"></a>
             </span>
-        </div>
+        </div><!-- end button controller row-->
 
 
     </div>

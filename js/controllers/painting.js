@@ -14,15 +14,6 @@
 
 app.controller('PaintingCtrl',function($scope, sharedDataService, eventListenerService){
 
-    var sketchpad = new Sketchpad({
-      element: '#sketchpad',
-      width: 350,
-      height: 350,
-    });
-
-    // Change stroke size
-    sketchpad.penSize = 15;
-
     var updateStrokesData = function(){
         var JSONData = JSON.parse(sketchpad.toJSON());
         var strokes = JSONData.strokes;
@@ -35,8 +26,42 @@ app.controller('PaintingCtrl',function($scope, sharedDataService, eventListenerS
         updateStrokesData();
     }
 
-   
+    var changeSketchpadsTo = function(){
+        currImgInd = sharedDataService.getData( "currentImgIndex");
+        imgName = sharedDataService.getImageName(currImgInd);
+        var sketchpads = sharedDataService.getData('sketchpads');
+        var canvases = sharedDataService.getData('canvases');
+        var currSketchpad = null;
+        var sketchDiv = angular.element( document.querySelector('#sketches-div') )
+        
+        if(imgName in sketchpads){
+          
+            sketchDiv.html(canvases[imgName]);
+            currSketchpad = sketchpads[imgName];
+
+        } else {
+            var newCanvas = angular.element("<canvas class='picture-box sketchpad' id='sketchpad-"+imgName+"' style='width:350px; height:350px;'></canvas>")
+            sketchDiv.html(newCanvas);
+            
+            sketchpads[imgName] = new Sketchpad({
+              element: '#sketchpad-'+imgName,
+              width: 350,
+              height: 350,
+            });
+
+            // Change stroke size
+            sketchpads[imgName].penSize = 15;
+            canvases[imgName] = newCanvas;
+
+            sharedDataService.setData('sketchpads', sketchpads);
+            sharedDataService.setData('canvases', canvases);
+            currSketchpad = sketchpads[imgName];
+
+            
+        }
+        return currSketchpad
+    };
+
+    eventListenerService.addListener("changeImage", changeSketchpadsTo);
     
-
-
 });

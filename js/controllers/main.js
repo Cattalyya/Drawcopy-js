@@ -22,6 +22,7 @@ app.controller('MainCtrl',function($scope, sharedDataService, eventListenerServi
 
     $scope.subject = sharedDataService.getData("subject")
     $scope.currentImageUrl = "";
+    $scope.currentImageName = "";
 
     var selectedImageIndexes = sharedDataService.getData("selectedImages");
     var imgIndex = 0;
@@ -32,6 +33,7 @@ app.controller('MainCtrl',function($scope, sharedDataService, eventListenerServi
         $scope.subject = sharedDataService.getData("subject");
         selectedImageIndexes = sharedDataService.getData("selectedImages");
         $scope.currentImageUrl = sharedDataService.getImageUrl(selectedImageIndexes[0]);
+        $scope.currentImageName = sharedDataService.getImageName(selectedImageIndexes[0]);
         numImages = selectedImageIndexes.length
         imgIndex = 0;
     }
@@ -46,7 +48,9 @@ app.controller('MainCtrl',function($scope, sharedDataService, eventListenerServi
         }
         console.log(imgIndex);
         $scope.currentImageUrl = sharedDataService.getImageUrl(selectedImageIndexes[imgIndex]);
-        
+        $scope.currentImageName = sharedDataService.getImageName(selectedImageIndexes[imgIndex]);
+        sharedDataService.setData( "currentImgIndex", imgIndex);
+        eventListenerService.triggerListeners("changeImage");
     }
 
     $scope.nextImage = function(){
@@ -57,6 +61,10 @@ app.controller('MainCtrl',function($scope, sharedDataService, eventListenerServi
         }
         console.log(imgIndex);
         $scope.currentImageUrl = sharedDataService.getImageUrl(selectedImageIndexes[imgIndex]);
+        $scope.currentImageName = sharedDataService.getImageName(selectedImageIndexes[imgIndex]);
+        sharedDataService.setData( "currentImgIndex", imgIndex);
+        eventListenerService.triggerListeners("changeImage");
+        
     }
 
 
