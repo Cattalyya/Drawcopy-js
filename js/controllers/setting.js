@@ -41,7 +41,8 @@ app.controller('SettingCtrl',function($scope, sharedDataService, eventListenerSe
 
     $scope.updateSetting = function(){
         sharedDataService.setData("subject",$scope.subject);
-        sharedDataService.setData("selectedImages", selectedImages)
+        sharedDataService.setData("selectedImages", selectedImages);
+        sharedDataService.setData( "currentImgIndex", 0);
         eventListenerService.triggerListeners("updateSetting");
     };
 

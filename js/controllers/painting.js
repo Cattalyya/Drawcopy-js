@@ -63,5 +63,6 @@ app.controller('PaintingCtrl',function($scope, sharedDataService, eventListenerS
     };
 
     eventListenerService.addListener("changeImage", changeSketchpadsTo);
+    eventListenerService.addListener("updateSetting", changeSketchpadsTo);
     
 });

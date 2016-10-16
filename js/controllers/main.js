@@ -30,12 +30,12 @@ app.controller('MainCtrl',function($scope, sharedDataService, eventListenerServi
 
 
     var updateMainCtrlData = function() {
+        imgIndex = sharedDataService.getData( "currentImgIndex");
         $scope.subject = sharedDataService.getData("subject");
         selectedImageIndexes = sharedDataService.getData("selectedImages");
-        $scope.currentImageUrl = sharedDataService.getImageUrl(selectedImageIndexes[0]);
-        $scope.currentImageName = sharedDataService.getImageName(selectedImageIndexes[0]);
-        numImages = selectedImageIndexes.length
-        imgIndex = 0;
+        $scope.currentImageUrl = sharedDataService.getImageUrl(selectedImageIndexes[imgIndex]);
+        $scope.currentImageName = sharedDataService.getImageName(selectedImageIndexes[imgIndex]);
+        numImages = selectedImageIndexes.length;
     }
 
     eventListenerService.addListener("updateSetting", updateMainCtrlData);
