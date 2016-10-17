@@ -29,6 +29,19 @@ body {
     text-decoration: none;
 }
 
+
+
+.drawcopy-theme #col-draw {
+    text-align:left; 
+    height:420px
+
+}
+
+.drawcopy-theme #col-img {
+    text-align:right;  
+    height:420px
+}
+
 .drawcopy-theme .picture-box {
     background-color: #fff;
     border:5px solid #C0C0C0;
@@ -39,6 +52,24 @@ body {
     background-color: #fff;
     border:5px solid #C0C0C0;
     margin: 0 20px;
+}
+
+
+@media (max-width:  768px) {
+    .drawcopy-theme #col-draw {
+        text-align:center; 
+    }
+    .drawcopy-theme #col-img {
+        text-align:center; 
+    }
+    .drawcopy-theme .picture-box {
+        border:2px solid #C0C0C0;
+    }
+    .drawcopy-theme .sketchpad {
+        border:2px solid #C0C0C0;
+        margin: 0;
+    }
+
 }
 
 .a-lg {

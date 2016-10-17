@@ -63,20 +63,17 @@
         <div class="row"><!-- drawing row-->
 
             <!--original image column-->
-            <div class="col-md-6">
+            <div class="col-sm-6">
                 
-                <div style="text-align:right; height:420px">
+                <div id="col-img" >
                     <img ng-src="{{currentImageUrl}}" alt="No images selected" class="picture-box"/>
                 </div>
 
             </div><!-- end original image column-->
 
             <!--drawing canvas column-->
-            <div class="col-md-6">
-                <div ng-controller="PaintingCtrl" style="text-align: left;height:420px" >
-                    <span>
-                        <a class="glyphicon glyphicon-export a-lg" aria-hidden="true" ng-click="viewData()" data-toggle="modal" data-target="#viewdataModal" style="float:right"></a>
-                    </span>
+            <div class="col-sm-6">
+                <div id="col-draw">
                     
                     <div id="sketches-div">
                         <canvas class="picture-box sketchpad" id="sketchpad"></canvas>
@@ -90,6 +87,9 @@
             <span>
                 <a class="glyphicon glyphicon-menu-left a-lg" aria-hidden="true" ng-click="previousImage()"></a>
                 <a class="glyphicon glyphicon-menu-right a-lg " aria-hidden="true" ng-click="nextImage()"></a>
+            </span>
+            <span ng-controller="PaintingCtrl" >
+                <a class="glyphicon glyphicon-export a-lg" aria-hidden="true" ng-click="viewData()" data-toggle="modal" data-target="#viewdataModal" style="float:right"></a>
             </span>
         </div><!-- end button controller row-->
 
