@@ -51,7 +51,10 @@ body {
 .drawcopy-theme .sketchpad {
     background-color: #fff;
     border:5px solid #C0C0C0;
-    margin: 0 20px;
+}
+
+.drawcopy-theme .paddingLR-div {
+    padding: 0 10px;
 }
 
 
@@ -67,12 +70,12 @@ body {
     }
     .drawcopy-theme .sketchpad {
         border:2px solid #C0C0C0;
-        margin: 0;
     }
-
+    .drawcopy-theme .paddingLR-div {
+        padding: 0;
+    }
 }
 
 .a-lg {
     font-size: 30pt
 }
-

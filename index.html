@@ -66,7 +66,10 @@
             <div class="col-sm-6">
                 
                 <div id="col-img" >
-                    <img ng-src="{{currentImageUrl}}" alt="No images selected" class="picture-box"/>
+
+                    <div class="paddingLR-div">
+                        <img ng-src="{{currentImageUrl}}" alt="No images selected" class="picture-box"/>
+                    </div>
                 </div>
 
             </div><!-- end original image column-->
@@ -75,10 +78,23 @@
             <div class="col-sm-6">
                 <div id="col-draw">
                     
-                    <div id="sketches-div">
+                    <div class="paddingLR-div" id="sketches-div">
                         <canvas class="picture-box sketchpad" id="sketchpad"></canvas>
                     </div>
+                    <div class="paddingLR-div">
+                        <label class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" >
+                          <span class="custom-control-indicator"></span>
+                          <span class="custom-control-description">Show an original image</span>
+                        </label>
+
+                        <span ng-controller="PaintingCtrl" >
+                            <a class="glyphicon glyphicon-export a-lg" aria-hidden="true" ng-click="viewData()" data-toggle="modal" data-target="#viewdataModal" style="margin-left: 20px"></a>
+                        </span>
+                    </div>
                 
+
+                    
                 </div>
             </div><!-- end drawing column-->
 
@@ -87,9 +103,6 @@
             <span>
                 <a class="glyphicon glyphicon-menu-left a-lg" aria-hidden="true" ng-click="previousImage()"></a>
                 <a class="glyphicon glyphicon-menu-right a-lg " aria-hidden="true" ng-click="nextImage()"></a>
-            </span>
-            <span ng-controller="PaintingCtrl" >
-                <a class="glyphicon glyphicon-export a-lg" aria-hidden="true" ng-click="viewData()" data-toggle="modal" data-target="#viewdataModal" style="float:right"></a>
             </span>
         </div><!-- end button controller row-->
 

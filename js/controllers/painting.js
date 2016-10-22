@@ -28,7 +28,7 @@ app.controller('PaintingCtrl',function($scope, sharedDataService, eventListenerS
     }
 
     var changeSketchpadsTo = function(){
-        currImgInd = sharedDataService.getData( "currentImgIndex");
+        currImgInd = sharedDataService.getData( "currentImgIndex"); // index for current list
         selectedImages = sharedDataService.getData( "selectedImages");
         imgName = sharedDataService.getImageName(selectedImages[currImgInd]);
         var sketchpads = sharedDataService.getData('sketchpads');
@@ -43,6 +43,13 @@ app.controller('PaintingCtrl',function($scope, sharedDataService, eventListenerS
 
         } else {
             var newCanvas = angular.element("<canvas class='picture-box sketchpad' id='sketchpad-"+imgName+"' style='width:350px; height:350px;'></canvas>")
+            //background: url("+sharedDataService.getImageUrl(selectedImages[currImgInd])+"); background-size: 350px 350px'
+            var image_url_css = "url("+sharedDataService.getImageUrl(selectedImages[currImgInd])+")"
+            newCanvas.css("background-image", "linear-gradient(to bottom, rgba(256,256,256,0.6) 0%,rgba(256,256,256,0.6) 100%),"+image_url_css)
+            newCanvas.css("background-size","350px 350px")
+            newCanvas.css("background-size","350px 350px")
+
+            // background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(IMAGE_URL);
             sketchDiv.html(newCanvas);
             
             sketchpads[imgName] = new Sketchpad({
@@ -50,6 +57,8 @@ app.controller('PaintingCtrl',function($scope, sharedDataService, eventListenerS
               width: 350,
               height: 350,
             });
+
+
 
             // Change stroke size
             sketchpads[imgName].penSize = 15;
