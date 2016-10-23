@@ -52,6 +52,7 @@ app.controller('MainCtrl',function($scope, sharedDataService, eventListenerServi
         console.log(imgIndex);
         $scope.currentImageUrl = sharedDataService.getImageUrl(selectedImageIndexes[imgIndex]);
         $scope.currentImageName = sharedDataService.getImageName(selectedImageIndexes[imgIndex]);
+
         sharedDataService.setData( "currentImgIndex", imgIndex);
         eventListenerService.triggerListeners("changeImage");
     }
@@ -65,15 +66,18 @@ app.controller('MainCtrl',function($scope, sharedDataService, eventListenerServi
         console.log(imgIndex);
         $scope.currentImageUrl = sharedDataService.getImageUrl(selectedImageIndexes[imgIndex]);
         $scope.currentImageName = sharedDataService.getImageName(selectedImageIndexes[imgIndex]);
+
         sharedDataService.setData( "currentImgIndex", imgIndex);
         eventListenerService.triggerListeners("changeImage");
         
     }
 
     $scope.hideBackgroundCanvas = function(){
-        
-        if(sharedDataService.getData("currentImgUrlCss")){
-            var image_url_css = sharedDataService.getData("currentImgUrlCss");
+
+        sharedDataService.setData("checkboxHideBG", $scope.checkbox.hideBG)
+
+        if(selectedImageIndexes.length!=0){
+            var image_url_css = sharedDataService.getImageUrlCss(selectedImageIndexes[imgIndex]);
             var sketchDiv = angular.element( document.querySelector('#sketches-div') );
 
             if($scope.checkbox.hideBG == true){

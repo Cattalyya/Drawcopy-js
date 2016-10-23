@@ -13,7 +13,8 @@ app.factory('sharedDataService', function(){
         sketchpads: {}, // map img name to sketchpads
         canvases: {}, // map img name to canvases
         showBackgroundImg: true,
-        currentImgUrlCss: undefined
+        currentImgUrlCss: undefined,
+        checkboxHideBG: false
     };
     
 
@@ -30,6 +31,9 @@ app.factory('sharedDataService', function(){
         },
         getImageName: function(index) {
             return IMAGE_NAMES[index]
+        },
+        getImageUrlCss: function(index) { // real index in storage
+            return  "url("+PATH_IMAGES+IMAGE_URLS[index]+")"
         },
         getCurrentSketchpad: function(){
             return data.sketchpads[IMAGE_NAMES[data.selectedImages[data.currentImgIndex]]]

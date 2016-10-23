@@ -37,21 +37,33 @@ app.controller('PaintingCtrl',function($scope, sharedDataService, eventListenerS
         var sketchDiv = angular.element( document.querySelector('#sketches-div') )
         
         if(imgName in sketchpads){
-          
+                        
+            var image_url_css = sharedDataService.getImageUrlCss(selectedImages[currImgInd]);
+        
+            if(sharedDataService.getData("checkboxHideBG") == true){
+                canvases[imgName].css("background-image", "linear-gradient(to bottom, rgba(256,256,256,1) 0%,rgba(256,256,256,1) 100%),"+image_url_css)
+            } else {
+                canvases[imgName].css("background-image", "linear-gradient(to bottom, rgba(256,256,256,0.6) 0%,rgba(256,256,256,0.6) 100%),"+image_url_css)
+            }
+
             sketchDiv.html(canvases[imgName]);
             currSketchpad = sketchpads[imgName];
 
         } else {
             var newCanvas = angular.element("<canvas class='picture-box sketchpad' id='sketchpad-"+imgName+"' style='width:350px; height:350px;'></canvas>")
             //background: url("+sharedDataService.getImageUrl(selectedImages[currImgInd])+"); background-size: 350px 350px'
-            var image_url_css = "url("+sharedDataService.getImageUrl(selectedImages[currImgInd])+")"
-            newCanvas.css("background-image", "linear-gradient(to bottom, rgba(256,256,256,0.6) 0%,rgba(256,256,256,0.6) 100%),"+image_url_css)
+            var image_url_css = sharedDataService.getImageUrlCss(selectedImages[currImgInd]);
+            
+            
+            if(sharedDataService.getData("checkboxHideBG") == true){
+                newCanvas.css("background-image", "linear-gradient(to bottom, rgba(256,256,256,1) 0%,rgba(256,256,256,1) 100%),"+image_url_css)
+            } else {
+                newCanvas.css("background-image", "linear-gradient(to bottom, rgba(256,256,256,0.6) 0%,rgba(256,256,256,0.6) 100%),"+image_url_css)
+            }
+            
             newCanvas.css("background-size","350px 350px")
             newCanvas.css("background-size","350px 350px")
 
-            sharedDataService.setData("currentImgUrlCss", image_url_css);
-
-            // background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(IMAGE_URL);
             sketchDiv.html(newCanvas);
             
             sketchpads[imgName] = new Sketchpad({
