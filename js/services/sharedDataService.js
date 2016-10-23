@@ -11,7 +11,9 @@ app.factory('sharedDataService', function(){
         subject: DEFAULT_SUBJECT, // default subject 
         selectedImages: [],
         sketchpads: {}, // map img name to sketchpads
-        canvases: {} // map img name to canvases
+        canvases: {}, // map img name to canvases
+        showBackgroundImg: true,
+        currentImgUrlCss: undefined
     };
     
 

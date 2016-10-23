@@ -49,6 +49,8 @@ app.controller('PaintingCtrl',function($scope, sharedDataService, eventListenerS
             newCanvas.css("background-size","350px 350px")
             newCanvas.css("background-size","350px 350px")
 
+            sharedDataService.setData("currentImgUrlCss", image_url_css);
+
             // background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(IMAGE_URL);
             sketchDiv.html(newCanvas);
             

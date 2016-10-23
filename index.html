@@ -82,15 +82,16 @@
                         <canvas class="picture-box sketchpad" id="sketchpad"></canvas>
                     </div>
                     <div class="paddingLR-div">
-                        <label class="custom-control custom-checkbox">
-                          <input type="checkbox" class="custom-control-input" >
-                          <span class="custom-control-indicator"></span>
-                          <span class="custom-control-description">Show an original image</span>
-                        </label>
+                        <div class="checkbox" ng-controller="PaintingCtrl">
+                            <label>
+                              <input type="checkbox" ng-model="checkbox.hideBG" ng-change="hideBackgroundCanvas()"> Hide a background image
+                            </label>
+                            <div ng-controller="PaintingCtrl" >
+                                <a class="glyphicon glyphicon-export a-lg" aria-hidden="true" ng-click="viewData()" data-toggle="modal" data-target="#viewdataModal" style="float: right"></a>
+                            </div>
+                        </div>
 
-                        <span ng-controller="PaintingCtrl" >
-                            <a class="glyphicon glyphicon-export a-lg" aria-hidden="true" ng-click="viewData()" data-toggle="modal" data-target="#viewdataModal" style="margin-left: 20px"></a>
-                        </span>
+                        
                     </div>
                 
 

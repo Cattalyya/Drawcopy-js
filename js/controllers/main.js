@@ -23,6 +23,10 @@ app.controller('MainCtrl',function($scope, sharedDataService, eventListenerServi
     $scope.subject = sharedDataService.getData("subject")
     $scope.currentImageUrl = "";
     $scope.currentImageName = "";
+    $scope.checkbox = {
+        hideBG: false
+    };
+
 
     var selectedImageIndexes = sharedDataService.getData("selectedImages");
     var imgIndex = 0;
@@ -40,7 +44,6 @@ app.controller('MainCtrl',function($scope, sharedDataService, eventListenerServi
 
     eventListenerService.addListener("updateSetting", updateMainCtrlData);
     eventListenerService.addListener("updateSetting", updateMainCtrlData);
-
     $scope.previousImage = function(){
         imgIndex--;
         if (imgIndex<0){
@@ -64,6 +67,21 @@ app.controller('MainCtrl',function($scope, sharedDataService, eventListenerServi
         $scope.currentImageName = sharedDataService.getImageName(selectedImageIndexes[imgIndex]);
         sharedDataService.setData( "currentImgIndex", imgIndex);
         eventListenerService.triggerListeners("changeImage");
+        
+    }
+
+    $scope.hideBackgroundCanvas = function(){
+        
+        if(sharedDataService.getData("currentImgUrlCss")){
+            var image_url_css = sharedDataService.getData("currentImgUrlCss");
+            var sketchDiv = angular.element( document.querySelector('#sketches-div') );
+
+            if($scope.checkbox.hideBG == true){
+                sketchDiv.children("canvas").css("background-image", "linear-gradient(to bottom, rgba(256,256,256,1) 0%,rgba(256,256,256,1) 100%),"+image_url_css)
+            } else {
+                sketchDiv.children("canvas").css("background-image", "linear-gradient(to bottom, rgba(256,256,256,0.6) 0%,rgba(256,256,256,0.6) 100%),"+image_url_css)
+            }
+        }
         
     }
 
